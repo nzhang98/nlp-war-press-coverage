@@ -1,3 +1,6 @@
+# Ignore files
+Midterm project.ipynb
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
