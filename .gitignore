@@ -1,5 +1,6 @@
 # Ignore files
 Midterm project.ipynb
+datasets
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
