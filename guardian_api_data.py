@@ -72,17 +72,18 @@ def saveData(query = "search",
 
 api_key = "4b60d0ae-509a-40ca-adb9-445033fac7e5"
 from_date = "1900-01-01"
-to_date = datetime.datetime.today().strftime("%Y-%m-%d")
+to_date = "1990-01-01"
 order_by = "oldest" 
 page_size = "200"
-page = 111
+page = 1
 section = "politics"
 show_fields = "bodyText,headline,newspaperEditionDate,webPublicationDate,firstPublicationDate"
-q_filter = '"war" OR "warfare" OR "conflict"'
+q_filter = '"War"'
 query_fields = "body,headline"
 
-r = getCall(from_date = from_date, page = page, order_by = "oldest", 
+r = getCall(from_date = from_date, page = page, order_by = "oldest", to_date = to_date, 
             page_size = 200, show_fields = show_fields, q_filter = q_filter, query_fields = query_fields)
+r
 
 r = r['response']['results']
 for i in range(len(r)):
