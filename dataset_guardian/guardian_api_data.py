@@ -70,7 +70,7 @@ def saveData(query = "search",
 
     return df
 
-api_key = "4b60d0ae-509a-40ca-adb9-445033fac7e5"
+api_key = "" #Insert your api key here
 from_date = "1900-01-01"
 to_date = "1990-01-01"
 order_by = "oldest" 
@@ -81,14 +81,14 @@ show_fields = "bodyText,headline,newspaperEditionDate,webPublicationDate,firstPu
 q_filter = '"War"'
 query_fields = "body,headline"
 
-r = getCall(from_date = from_date, page = page, order_by = "oldest", to_date = to_date, 
-            page_size = 200, show_fields = show_fields, q_filter = q_filter, query_fields = query_fields)
-r
+#Manually append pages if something went wrong
+# r = getCall(from_date = from_date, page = page, order_by = "oldest", to_date = to_date, 
+#             page_size = 200, show_fields = show_fields, q_filter = q_filter, query_fields = query_fields)
 
-r = r['response']['results']
-for i in range(len(r)):
-    article = pd.DataFrame(r[i]['fields'], index = [0])
-    df = pd.concat([df, article], ignore_index = True)
+# r = r['response']['results']
+# for i in range(len(r)):
+#     article = pd.DataFrame(r[i]['fields'], index = [0])
+#     df = pd.concat([df, article], ignore_index = True)
 
 df = saveData(api_key = api_key,
         from_date = from_date, 
@@ -101,6 +101,4 @@ df = saveData(api_key = api_key,
         q_filter = q_filter, 
         query_fields = query_fields)
 
-#redo pages: 90, 111
-
-# df.to_csv('/datasets/guardian_dataset_raw.csv')
+df.to_csv('/datasets/guardian_dataset_raw.csv')

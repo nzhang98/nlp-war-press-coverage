@@ -22,4 +22,4 @@ df = df[['headline', 'bodyText', 'newspaperEditionDate']].rename({'bodyText' : '
 df['date'] = pd.to_datetime(df['date'], format="%Y-%m-%d").dt.date
 df.sort_values(['date'], ignore_index=True, inplace=True)
 
-# df.to_csv('/datasets/guardian_dataset_cleaned.csv')
+df.to_csv('/datasets/guardian_dataset_cleaned.csv')
